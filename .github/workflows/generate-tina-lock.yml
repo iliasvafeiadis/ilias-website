@@ -1,41 +1,11 @@
-name: Generate Tina lock file
-
-on:
-  workflow_dispatch:
-
-permissions:
-  contents: write
-
-jobs:
-  generate:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Generate Tina lock file
-        run: npx tinacms build
-        env:
-          NEXT_PUBLIC_TINA_CLIENT_ID: ${{ secrets.TINA_CLIENT_ID }}
-          TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
-
-      - name: Commit generated lock file
-        run: |
-          if [ -f tina/tina-lock.json ]; then
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add tina/tina-lock.json
-            git diff --cached --quiet || git commit -m "Generate Tina lock file"
-            git push
-          else
-            echo "Tina lock file was not generated"
-            exit 1
-          fi
+- name: Generate Tina lock file
+  env:
+    NEXT_PUBLIC_TINA_CLIENT_ID: ${{ secrets.NEXT_PUBLIC_TINA_CLIENT_ID }}
+    TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
+  run: |
+    if [ -z "$NEXT_PUBLIC_TINA_CLIENT_ID" ]; then
+      echo "ERROR: Client ID is empty"
+      exit 1
+    fi
+    echo "Client ID is available"
+    npx tinacms build
