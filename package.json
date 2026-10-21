@@ -1,0 +1,19 @@
+{
+  "name": "ilias-vafeiadis-tinacms",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "tinacms build && node scripts/publish.mjs",
+    "dev": "tinacms dev -c \"vite --host\""
+  },
+  "dependencies": {
+    "tinacms": "^2.8.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@tinacms/cli": "^1.11.0",
+    "vite": "^7.0.0"
+  }
+}
