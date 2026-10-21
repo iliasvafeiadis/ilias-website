@@ -1,3 +1,8 @@
 {
-  "spotifyEmbedUrl": ""
+  "hero_description": "Original music for film, theatre and dance. Instrumental releases, live performances and creative collaborations.",
+  "releases_intro": "Selected recordings from my discography. Explore the complete collection below.",
+  "contact_intro": "For commissions, collaborations and live enquiries, please get in touch.",
+  "spotify_embed_url": "",
+  "spotify_heading": "Listen on Spotify",
+  "spotify_note": "Add a Spotify embed URL to display a player below Releases."
 }
