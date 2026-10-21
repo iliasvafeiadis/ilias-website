@@ -1,6 +1,6 @@
 import { defineConfig } from 'tinacms';
 
-const branch = process.env.CF_PAGES_BRANCH || process.env.HEAD || 'tina-cms';
+const branch = process.env.CF_PAGES_BRANCH || process.env.HEAD || 'main';
 
 export default defineConfig({
   branch,
