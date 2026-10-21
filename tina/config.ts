@@ -1,3 +1,4 @@
+// TinaCloud configuration
 import { defineConfig } from 'tinacms';
 
 const branch = process.env.CF_PAGES_BRANCH || process.env.HEAD || 'main';
